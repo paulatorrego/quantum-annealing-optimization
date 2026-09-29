@@ -153,7 +153,7 @@ c'
 +
 \sum_i h_i s_i
 +
-\sum_{i<j}J_{ij}s_i s_j.
+\sum_{i < j}J_{ij}s_i s_j.
 }
 $$
 
@@ -370,62 +370,7 @@ src/
     ├── solvers/
     ├── benchmarking/
     └── visualization/
-
-
-# Quantum Annealing & Combinatorial Optimization
-
-A structured learning and research repository for **binary optimization, QUBO models, Ising formulations, simulated annealing, quantum annealing, constraint encoding, embedding, and practical optimization problems**.
-
-The central pipeline is
-
-$$
-\text{optimization problem}
-\rightarrow
-\text{binary formulation}
-\rightarrow
-\text{QUBO}
-\rightarrow
-\text{Ising}
-\rightarrow
-\text{annealing}
-\rightarrow
-\text{sampling and validation}.
-$$
-
-The repository is designed both as a **professional portfolio project** and as a **long-term tutorial/reference** for future quantum-optimization work.
-
-## Learning path
-
-### Beginner
-
-- `docs/01_binary_optimization.md`
-- `docs/02_qubo_mathematics.md`
-- binary variables
-- QUBO
-- Number Partitioning
-- Max-Cut
-
-### Intermediate
-
-- `docs/03_ising_model.md`
-- `docs/04_annealing.md`
-- `docs/06_constraints_and_penalties.md`
-- QUBO $\leftrightarrow$ Ising
-- simulated annealing
-- constraints and penalties
-- Knapsack
-- Graph Coloring
-
-### Advanced
-
-- `docs/05_quantum_annealing.md`
-- `docs/07_embedding.md`
-- `docs/08_benchmarking.md`
-- quantum annealing
-- adiabatic evolution
-- embedding and chains
-- D-Wave/Ocean workflows
-- benchmarking and scaling
+```
 
 ## Repository structure
 
