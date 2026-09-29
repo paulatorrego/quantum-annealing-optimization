@@ -27,7 +27,7 @@ $$
 a particularly important model is the **Quadratic Unconstrained Binary Optimization (QUBO)** problem:
 
 $$
-\boxed{E(x)=c+\sum_i a_i x_i+\sum_{i<j} b_{ij}x_i x_j}
+\boxed{E(x)=c+\sum_i a_i x_i+\sum_{i < j} b_{ij}x_i x_j}
 $$
 
 or, equivalently,
@@ -59,7 +59,7 @@ $$
 E(x)=
 c+
 \sum_i a_i x_i+
-\sum_{i<j}b_{ij}x_ix_j,
+\sum_{i < j}b_{ij}x_ix_j,
 $$
 
 with each interaction stored only once. This avoids ambiguities associated with factors of two in matrix representations.
