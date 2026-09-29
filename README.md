@@ -27,20 +27,13 @@ $$
 a particularly important model is the **Quadratic Unconstrained Binary Optimization (QUBO)** problem:
 
 $$
-\boxed{
-E(x)=
-c+
-\sum_i a_i x_i
-+
-\sum_{i<j} b_{ij}x_i x_j
-}
+\boxed{E(x)=c+\sum_i a_i x_i+\sum_{i<j} b_{ij}x_i x_j}
 $$
 
 or, equivalently,
 
 $$
-\boxed{
-E(x)=x^TQx+c
+\boxed{E(x)=x^TQx+c
 }
 $$
 
