@@ -12,21 +12,21 @@ The repository contains explicit QUBO formulations for several representative op
 
 Many discrete optimization problems can be written as
 
-\[
+$$
 \min_{x \in \mathcal{X}} f(x),
-\]
+$$
 
 where the variables describe discrete decisions and \(\mathcal{X}\) contains the allowed configurations.
 
 For binary optimization,
 
-\[
+$$
 x_i \in \{0,1\},
-\]
+$$
 
 a particularly important model is the **Quadratic Unconstrained Binary Optimization (QUBO)** problem:
 
-\[
+$$
 \boxed{
 E(x)=
 c+
@@ -34,23 +34,23 @@ c+
 +
 \sum_{i<j} b_{ij}x_i x_j
 }
-\]
+$$
 
 or, equivalently,
 
-\[
+$$
 \boxed{
 E(x)=x^TQx+c
 }
-\]
+$$
 
 for an appropriate matrix convention.
 
 The objective is to find
 
-\[
+$$
 x^\star=\arg\min_{x\in\{0,1\}^N}E(x).
-\]
+$$
 
 QUBOs are important because a wide range of combinatorial problems can be represented in this form, either directly or by introducing additional binary variables and penalty terms.
 
@@ -62,13 +62,12 @@ The resulting model contains:
 
 The implementation in this repository uses the explicit convention
 
-\[
-E(x)
-=
+$$
+E(x)=
 c+
 \sum_i a_i x_i+
 \sum_{i<j}b_{ij}x_ix_j,
-\]
+$$
 
 with each interaction stored only once. This avoids ambiguities associated with factors of two in matrix representations.
 
@@ -78,44 +77,44 @@ with each interaction stored only once. This avoids ambiguities associated with 
 
 Real optimization problems are generally constrained:
 
-\[
+$$
 \min_x f(x)
-\]
+$$
 
 subject to
 
-\[
+$$
 g_k(x)=0,
 \qquad
 h_l(x)\leq 0.
-\]
+$$
 
 A QUBO is unconstrained, so constraints must be incorporated into the energy function.
 
 For an equality constraint
 
-\[
+$$
 \sum_i a_i x_i=b,
-\]
+$$
 
 a quadratic penalty can be introduced:
 
-\[
+$$
 \boxed{
 P\left(\sum_i a_i x_i-b\right)^2
 }
-\]
+$$
 
-where \(P>0\) controls the energetic cost of violating the constraint.
+where $P>0$ controls the energetic cost of violating the constraint.
 
 The resulting objective becomes
 
-\[
+$$
 E_{\mathrm{QUBO}}(x)=
 f(x)
 +
 P\left(\sum_i a_i x_i-b\right)^2.
-\]
+$$
 
 For sufficiently appropriate penalty strength, feasible configurations are energetically preferred while the original objective determines which feasible configuration is selected.
 
@@ -131,31 +130,30 @@ The QUBO representation has a direct connection to the Ising model used in stati
 
 The binary variables can be transformed into spin variables through
 
-\[
+$$
 \boxed{
 s_i=2x_i-1
 }
-\]
+$$
 
 with
 
-\[
+$$
 s_i\in\{-1,+1\},
 \qquad
 x_i=\frac{1+s_i}{2}.
-\]
+$$
 
 Using
 
-\[
-x_i x_j
-=
+$$
+x_i x_j=
 \frac{1+s_i+s_j+s_is_j}{4},
-\]
+$$
 
 the QUBO energy can be rewritten as
 
-\[
+$$
 \boxed{
 H(s)=
 c'
@@ -164,7 +162,7 @@ c'
 +
 \sum_{i<j}J_{ij}s_i s_j.
 }
-\]
+$$
 
 Here:
 
@@ -176,11 +174,11 @@ The two formulations describe the same optimization landscape under the binary-s
 
 This repository therefore includes explicit and reversible
 
-\[
+$$
 \mathrm{QUBO}
 \longleftrightarrow
 \mathrm{Ising}
-\]
+$$
 
 conversion utilities, together with exhaustive validation routines for small systems.
 
@@ -192,21 +190,21 @@ Once an optimization problem has been expressed as an energy function, annealing
 
 ### Simulated annealing
 
-Classical simulated annealing introduces a temperature parameter \(T\). A move that changes the energy by
+Classical simulated annealing introduces a temperature parameter $T$. A move that changes the energy by
 
-\[
+$$
 \Delta E=E_{\mathrm{new}}-E_{\mathrm{old}}
-\]
+$$
 
 is accepted with probability
 
-\[
+$$
 P_{\mathrm{accept}}=
 \begin{cases}
 1, & \Delta E\leq0,\\[4pt]
 e^{-\Delta E/T}, & \Delta E>0.
 \end{cases}
-\]
+$$
 
 At high temperature, energetically unfavorable transitions can occur frequently, allowing exploration of the landscape. As the temperature decreases, the dynamics increasingly favor low-energy configurations.
 
@@ -229,13 +227,13 @@ Quantum annealing uses a quantum Hamiltonian whose ground state encodes the solu
 
 A standard annealing Hamiltonian can be written schematically as
 
-\[
+$$
 \boxed{
 H(s)=
 A(s)H_B+B(s)H_P,
 \qquad s\in[0,1],
 }
-\]
+$$
 
 where:
 
@@ -260,22 +258,22 @@ The repository contains explicit QUBO constructions for several representative c
 
 ### Number Partitioning
 
-Given numbers \(w_i\), divide them into two subsets with approximately equal total weight.
+Given numbers $w_i$, divide them into two subsets with approximately equal total weight.
 
-With \(x_i\in\{0,1\}\), the partition imbalance can be written as
+With $x_i\in\{0,1\}$, the partition imbalance can be written as
 
-\[
+$$
 \Delta(x)=
 \sum_i w_i(2x_i-1),
-\]
+$$
 
 and the optimization objective becomes
 
-\[
+$$
 \boxed{
 \min_x \Delta(x)^2.
 }
-\]
+$$
 
 This provides a compact example of the direct connection between a combinatorial problem and a quadratic binary energy.
 
@@ -285,13 +283,13 @@ Given a graph $G=(V,E)$, divide the vertices into two sets so that the total wei
 
 For an edge $(i,j)$, the cut indicator is
 
-\[
+$$
 x_i+x_j-2x_ix_j.
-\]
+$$
 
 Therefore maximizing the cut is equivalent to minimizing
 
-\[
+$$
 \boxed{
 E(x)=
 -\sum_{(i,j)\in E}
@@ -300,7 +298,7 @@ w_{ij}
 x_i+x_j-2x_ix_j
 \right).
 }
-\]
+$$
 
 Max-Cut is particularly natural for QUBO and Ising formulations because its graph structure maps directly onto pairwise interactions.
 
@@ -308,28 +306,28 @@ Max-Cut is particularly natural for QUBO and Ising formulations because its grap
 
 The binary knapsack problem is
 
-\[
+$$
 \max_x
 \sum_i v_i x_i
-\]
+$$
 
 subject to
 
-\[
+$$
 \sum_i w_i x_i\leq C.
-\]
+$$
 
 The repository converts the capacity constraint into a quadratic penalty using binary slack variables, producing an unconstrained QUBO.
 
 ### Graph Coloring
 
-For a graph \(G=(V,E)\), binary variables represent assigning a vertex to a particular color.
+For a graph $G=(V,E)$, binary variables represent assigning a vertex to a particular color.
 
 One-hot constraints enforce
 
-\[
+$$
 \sum_c x_{ic}=1,
-\]
+$$
 
 while quadratic penalties discourage adjacent vertices from receiving the same color.
 
