@@ -25,10 +25,18 @@ possible configurations.
 A minimization problem is
 
 $$
+\mathbf{x}^\star = \mathop{\mathrm{arg\,min}}_{\mathbf{x}\in\{0,1\}^N} f(\mathbf{x}).
+$$
+
+$$
 \mathbf{x}^\star=\operatorname*{arg\,min}_{\mathbf{x}\in\{0,1\}^N}f(\mathbf{x}).
 $$
 
 For maximization,
+
+$$
+\mathbf{x}^\star = \mathop{\mathrm{arg\,max}}_{\mathbf{x}\in\{0,1\}^N} f(\mathbf{x}),
+$$
 
 $$
 \mathbf{x}^\star=\operatorname*{arg\,max}_{\mathbf{x}\in\{0,1\}^N}f(\mathbf{x}),
