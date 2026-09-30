@@ -11,7 +11,7 @@ $$
 the configuration space $\{0,1\}^N$ becomes a discrete energy landscape. The goal is
 
 $$
-\mathbf{x}^\star=\operatorname*{arg\,min}_{\mathbf{x}}E(\mathbf{x}).
+\mathbf{x}^\star=\mathop{\mathrm{arg\,min}}_{\mathbf{x}}E(\mathbf{x}).
 $$
 
 A local minimum is a state whose nearby configurations all have greater or equal energy, even if a lower-energy state exists elsewhere.
