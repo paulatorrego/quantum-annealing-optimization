@@ -129,8 +129,7 @@ $$
 so
 
 $$
-\hat H_P|\mathbf{s}\rangle
-=
+\hat H_P|\mathbf{s}\rangle=
 H_{\mathrm{Ising}}(\mathbf{s})|\mathbf{s}\rangle.
 $$
 
