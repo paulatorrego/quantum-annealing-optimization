@@ -50,7 +50,7 @@ Pairwise interactions give
 $$
 f(\mathbf{x})=
 \sum_i a_i x_i+
-\sum_{i<j}b_{ij}x_ix_j+c.
+\sum_{i < j}b_{ij}x_ix_j+c.
 $$
 
 The product $x_ix_j$ is active only when both decisions are selected, so it can represent interactions, incompatibilities, rewards, graph edges and logical penalties.
