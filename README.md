@@ -16,7 +16,7 @@ $$
 \min_{x \in \mathcal{X}} f(x),
 $$
 
-where the variables describe discrete decisions and \(\mathcal{X}\) contains the allowed configurations.
+where the variables describe discrete decisions and $\mathcal{X}$ contains the allowed configurations.
 
 For binary optimization,
 
@@ -360,20 +360,6 @@ The QUBO enforces one start time per job and penalizes overlapping jobs on the s
 
 # 7. Repository architecture
 
-The implementation is organized around five main components:
-
-```text
-src/
-└── qa_optimization/
-    ├── qubo/
-    ├── problems/
-    ├── solvers/
-    ├── benchmarking/
-    └── visualization/
-```
-
-## Repository structure
-
 ```text
 quantum-annealing-optimization/
 ├── README.md
@@ -420,99 +406,9 @@ The separation is intentional:
 | `results/` | Reproducible outputs |
 | `references/` | Literature and documentation |
 
-## Core mathematical idea
 
-A QUBO is
 
-$$
-\min_{\mathbf{x}\in\{0,1\}^N}E(\mathbf{x}),
-$$
-
-with
-
-$$
-E(\mathbf{x})=
-\sum_i a_i x_i+
-\sum_{i<j}b_{ij}x_ix_j+c.
-$$
-
-Equivalently,
-
-$$
-E(\mathbf{x})=\mathbf{x}^{T}Q\mathbf{x}+c,
-$$
-
-under a stated matrix convention.
-
-The binary-to-spin transformation used throughout the project is
-
-$$
-s_i=2x_i-1,
-\qquad
-x_i=\frac{1+s_i}{2}.
-$$
-
-It produces an Ising energy
-
-$$
-H(\mathbf{s})=
-\sum_i h_i s_i+
-\sum_{i<j}J_{ij}s_is_j+C.
-$$
-
-For quantum annealing, the classical problem becomes a problem Hamiltonian, conceptually embedded in
-
-$$
-\hat H(s)=A(s)\hat H_B+B(s)\hat H_P,
-\qquad
-s=\frac{t}{t_f}.
-$$
-
-## Problems studied
-
-The planned progression is:
-
-1. Number Partitioning
-2. Max-Cut
-3. Knapsack
-4. Graph Coloring
-5. Traveling Salesperson Problem
-6. Scheduling
-7. Portfolio Optimization
-
-## Solvers and baselines
-
-The repository remains solver-agnostic. It can contain:
-
-- brute-force enumeration for small instances;
-- greedy/local-search heuristics;
-- simulated annealing;
-- tabu search;
-- D-Wave quantum annealing;
-- hybrid quantum-classical approaches.
-
-The purpose of benchmarking is to characterize behavior on controlled instance families rather than assume a universal winner.
-
-## Recommended notebook structure
-
-```text
-1. Problem
-2. Mathematical formulation
-3. Binary encoding
-4. QUBO derivation
-5. Implementation
-6. Exact/reference solution
-7. Classical baseline
-8. Annealing experiment
-9. Validation
-10. Scaling or parameter study
-11. Results
-12. Conclusions
-```
-
-The mathematics should appear **before** the implementation that realizes it.
-
-## Reproducibility
+# 8. Reproducibility
 
 Experiments should report the instance-generation method, problem size, random seeds, number of reads, solver parameters, penalty coefficients, embedding settings, software versions, and hardware information when relevant.
 
