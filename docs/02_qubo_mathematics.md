@@ -13,7 +13,7 @@ with
 $$
 E(\mathbf{x})=
 \sum_i a_i x_i+
-\sum_{i<j}b_{ij}x_ix_j+c.
+\sum_{i < j}b_{ij}x_ix_j+c.
 $$
 
 The model is unconstrained because explicit constraints have been absorbed into the objective, usually through penalties.
@@ -29,7 +29,7 @@ $$
 With a symmetric $Q$, one convention is
 
 $$
-E(\mathbf{x})=\sum_iQ_{ii}x_i+\sum_{i<j}Q_{ij}x_ix_j+c.
+E(\mathbf{x})=\sum_iQ_{ii}x_i+\sum_{i < j}Q_{ij}x_ix_j+c.
 $$
 
 Other conventions distribute a quadratic coefficient between $Q_{ij}$ and $Q_{ji}$. Code must document which convention it uses.
@@ -57,10 +57,10 @@ are not QUBO terms and require reduction, auxiliary variables or another formula
 For any constant $c$,
 
 $$
-\operatorname*{arg\,min}_{\mathbf{x}}[E(\mathbf{x})+c]
-=
-\operatorname*{arg\,min}_{\mathbf{x}}E(\mathbf{x}).
+\mathop{\mathrm{arg\,min}}_{\mathbf{x}}[E(\mathbf{x})+c]=
+\mathop{\mathrm{arg\,min}}_{\mathbf{x}}E(\mathbf{x}).
 $$
+
 
 The optimizer is unchanged, although absolute energies are shifted.
 
@@ -94,8 +94,7 @@ $$
 Expanding and using $x_i^2=x_i$,
 
 $$
-P\left[
--x_1-x_2-x_3
+P\left[-x_1-x_2-x_3
 +2x_1x_2+2x_1x_3+2x_2x_3+1
 \right].
 $$
@@ -162,7 +161,7 @@ $$
 and preserves the minimizer:
 
 $$
-\operatorname*{arg\,min}E'=\operatorname*{arg\,min}E.
+\mathop{\mathrm{arg\,min}}E'=\mathop{\mathrm{arg\,min}}E.
 $$
 
 However, hardware and numerical solvers have finite coefficient ranges, so scaling can affect practical performance.
@@ -178,16 +177,14 @@ The repository should therefore keep **model construction** separate from **solv
 For small instances, verify
 
 $$
-E_{\mathrm{original}}(\mathbf{x})
-=
+E_{\mathrm{original}}(\mathbf{x})=
 E_{\mathrm{QUBO}}(\mathbf{x})
 $$
 
 or, when an offset is present,
 
 $$
-E_{\mathrm{original}}(\mathbf{x})
-=
+E_{\mathrm{original}}(\mathbf{x})=
 E_{\mathrm{QUBO}}(\mathbf{x})-C.
 $$
 
