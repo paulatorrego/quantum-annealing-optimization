@@ -5,7 +5,7 @@
 An Ising model
 
 $$
-H(\mathbf s)=\sum_ih_is_i+\sum_{i<j}J_{ij}s_is_j
+H(\mathbf s)=\sum_ih_is_i+\sum_{i < j}J_{ij}s_is_j
 $$
 
 defines a logical graph. Each variable is a vertex and each nonzero $J_{ij}$ is an edge.
