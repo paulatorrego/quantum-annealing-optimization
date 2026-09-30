@@ -6,7 +6,7 @@ After mapping a binary optimization problem to
 
 $$
 H_{\mathrm{Ising}}(\mathbf{s})=
-\sum_i h_i s_i+\sum_{i<j}J_{ij}s_is_j,
+\sum_i h_i s_i+\sum_{i < j}J_{ij}s_is_j,
 $$
 
 replace the classical spins by Pauli-$Z$ operators:
@@ -20,7 +20,7 @@ The problem Hamiltonian becomes
 $$
 \hat H_P=
 \sum_i h_i\hat\sigma_i^z+
-\sum_{i<j}J_{ij}\hat\sigma_i^z\hat\sigma_j^z.
+\sum_{i < j}J_{ij}\hat\sigma_i^z\hat\sigma_j^z.
 $$
 
 Its computational-basis ground states encode solutions of the optimization problem.
