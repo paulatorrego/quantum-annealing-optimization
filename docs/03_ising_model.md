@@ -35,13 +35,13 @@ Start from
 $$
 E(\mathbf{x})=
 \sum_i a_i x_i+
-\sum_{i<j}b_{ij}x_ix_j+c.
+\sum_{i < j}b_{ij}x_ix_j+c.
 $$
 
 After substitution,
 
 $$
-E(\mathbf{s})=C+\sum_i h_i s_i+\sum_{i<j}J_{ij}s_is_j.
+E(\mathbf{s})=C+\sum_i h_i s_i+\sum_{i < j}J_{ij}s_is_j.
 $$
 
 For the pairwise-coefficient convention above,
@@ -59,7 +59,7 @@ $$
 with the constant
 
 $$
-C=c+\frac12\sum_i a_i+\frac14\sum_{i<j}b_{ij}.
+C=c+\frac12\sum_i a_i+\frac14\sum_{i < j}b_{ij}.
 $$
 
 The exact matrix formula depends on how off-diagonal QUBO coefficients are stored, so implementation and documentation must use one convention consistently.
@@ -103,7 +103,7 @@ The classical Ising energy is
 $$
 H_{\mathrm{Ising}}(\mathbf{s})=
 \sum_i h_i s_i+
-\sum_{i<j}J_{ij}s_is_j.
+\sum_{i < j}J_{ij}s_is_j.
 $$
 
 In quantum annealing, promote spins to Pauli-$Z$ operators:
@@ -117,7 +117,7 @@ The problem Hamiltonian is
 $$
 \hat H_P=
 \sum_i h_i\hat\sigma_i^z+
-\sum_{i<j}J_{ij}\hat\sigma_i^z\hat\sigma_j^z.
+\sum_{i < j}J_{ij}\hat\sigma_i^z\hat\sigma_j^z.
 $$
 
 For a computational-basis state $|\mathbf{s}\rangle$,
@@ -165,8 +165,7 @@ Max-Cut has a simple global spin-flip symmetry: exchanging the two partitions ca
 For every small binary configuration, compute the QUBO energy and its mapped Ising energy. Verify
 
 $$
-E_{\mathrm{QUBO}}(\mathbf{x})
-=
+E_{\mathrm{QUBO}}(\mathbf{x})=
 E_{\mathrm{Ising}}(\mathbf{s})+C.
 $$
 
